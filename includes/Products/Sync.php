@@ -78,12 +78,12 @@ class Sync {
 	 *
 	 * @since 2.0.0-dev.1
 	 *
-	 * @param int[] $product_ids
+	 * @param int[] $product_ids product IDs to delete
 	 */
 	public function delete_products( array $product_ids ) {
 
 		foreach ( $product_ids as $product_id ) {
-			$this->requests[ $this->get_product_index( $product_id ) ] = self::ACTION_DELETE;
+			$this->requests[ \WC_Facebookcommerce_Utils::get_fb_retailer_id( $product_id ) ] = self::ACTION_DELETE;
 		}
 	}
 
